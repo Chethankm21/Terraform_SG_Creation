@@ -29,9 +29,6 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init
-        with:
-        ACCESS_KEY: ${{ACCESS_KEY}}
-        SECRET_KEY: ${{SECRET_KEY}}
       
       - name: Terraform Validate
         id: validate
