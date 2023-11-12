@@ -18,6 +18,9 @@ jobs:
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
+        with:
+        ACCESS_KEY: ${{ACCESS_KEY}}
+        SECRET_KEY: ${{SECRET_KEY}}
 
       - name: Terraform Format
         id: fmt
