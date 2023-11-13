@@ -54,10 +54,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: stage
 
-     defaults:
-      run:
-        shell: bash
-    
     steps:
       - name: Checkout
         uses: actions/checkout@v3
