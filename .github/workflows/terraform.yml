@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-  pull_request:
 env:
       AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
@@ -13,9 +12,7 @@ jobs:
   terraform_plan:
     name: "Terraform_Plan"
     runs-on: ubuntu-latest
-  
-    permissions:
-      pull-requests: write
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -83,4 +80,3 @@ jobs:
       - name: Terraform apply
         id: apply
         run: terraform apply -auto-approve
-  # Test
