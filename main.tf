@@ -1,18 +1,13 @@
-resource "aws_security_group" "my_sg" {
-  name = "SG_GHA"
-  ingress {
-    description = "TLS from VPC"
-    from_port   = 443
-    to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+#Using Security group module to create SG
+module "my_SG" {
+  source = "./modules/SG"
+}
 
-  }
+#Using ec2 module to create instance
 
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+module "my_ec2" {
+  source = "./modules/ec2"
+
+  #Referncing the output of security group module
+  sg_group_id = module.my_SG.my_sg_id
 }
