@@ -17,9 +17,6 @@ jobs:
       - name: Checkout
       - uses: actions/checkout@v3
 
-      - name: print workspace
-        run: echo $GITHUB_WORKSPACE
-
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
 
